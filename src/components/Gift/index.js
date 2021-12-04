@@ -1,3 +1,10 @@
-export default function Gift({ name }) {
-  return <li>{name}</li>;
+export default function Gift({ name, deleteGift }) {
+  return (
+    <>
+      <li>
+        {name}
+        <span onClick={() => deleteGift(name)}> x</span>
+      </li>
+    </>
+  );
 }
