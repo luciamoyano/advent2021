@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Work+Sans&display=swap');
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin:0;
+  padding:0;
+  background-color: $cream;
+  color:$green;
+}
+
+.App {
+  font-family: 'Work Sans', sans-serif;
+  padding:0;
+  margin:0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  min-height:100vh;
+  width:100%;
+  background-image: url('./images/background.jpg');
+  background-size: cover;
+  background-position:center;
+  line-height: 1.2em;
+  h1 {
+    font-family: 'Dancing Script', serif;
+    margin-bottom:40px;
+  }
+  input {
+    font-family: 'Work Sans', sans-serif;
+    border:none;
+    background:transparent;
+    padding:10px;
+    border-bottom:1px solid $green;
+    &:hover, &:active,&:focus {
+      outline:none;
+      border-color: $orange;
+    }
+  }
+  #main-container {
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: flex-start;
+    padding:40px;
+    width: 80%;
+    max-width: 700px;
+    height:80vh;
+    background-color: $cream;
+    border-radius:30px;
+    position:relative;
+    button.add-gift {
+      font-family: 'Work Sans', sans-serif;
+      background-color: $mustard;
+      border:none;
+      margin-left:8px;
+      border-radius:10px;
+      padding:10px;
+      color:$cream;
+      cursor:pointer;
+    }    
+    .gifts-container {
+      margin-top:30px;
+      ul {
+        list-style-type: none;
+        padding:0;
+        margin:0;
+        li {
+          line-height: 2;
+          &:before {
+            content:'☆';
+            font-size:20px;
+            margin-right:10px;
+          }
+        }
+      }
+    }
+    .snowman {
+      font-size:50px;
+      position:absolute;
+      bottom:40px;
+      right:40px;
+    }
+  }
+}
+
