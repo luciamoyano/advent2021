@@ -5,18 +5,20 @@ import "./styles.scss";
 import DeleteAll from './components/DeleteAll';
 
 export default function App() {
-const [giftsList, setGiftsList] = useState(['mundial qatar 2022', 'milanesa con puré'])
+const [giftsList, setGiftsList] = useState([{'name':'mundial de qatar 2022','quantity':1},{'name':'milanesas con puré','quantity':365}])
 
   
-  function addGift(newGift:string) {
-    if(!giftsList.includes(newGift)) {
-      setGiftsList([...giftsList, newGift]);
+  function addGift(name:any, quantity:number) {
+    if(!giftsList.includes(name)) {
+      setGiftsList(
+        [...giftsList, {'name':name, 'quantity': quantity}
+      ]);
     }
   }
 
-  function deleteGift(name:string) {
+  function deleteGift(deletedGiftName:any) {
     const newList = giftsList.filter((gift) => {
-      return name !== gift
+      return deletedGiftName !== gift.name
     })
     setGiftsList(newList);  
   }
@@ -25,6 +27,8 @@ const [giftsList, setGiftsList] = useState(['mundial qatar 2022', 'milanesa con 
     setGiftsList([]);
   }
 
+  console.log(giftsList)
+
   return (
 
     <div className="App">
@@ -32,7 +36,10 @@ const [giftsList, setGiftsList] = useState(['mundial qatar 2022', 'milanesa con 
       <h1>Regalos:</h1>
         <AddGift handleCallback={addGift}/>
         <div className="gifts-container">
-          <GiftsList giftsList={giftsList} deleteGift={deleteGift}  />
+          {giftsList.length !== 0 ? 
+            <GiftsList giftsList={giftsList} deleteGift={deleteGift}  />
+            : <p>Agrega algun regalo</p>
+          }
         </div>
         <DeleteAll deleteAll={deleteAll}/>
         <div className="snowman">&#9731;</div>

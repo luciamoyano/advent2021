@@ -1,0 +1,15 @@
+.gift {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    .gift-quantity{
+        margin-right:10px;
+    }
+    .gift-name {
+        flex-grow: 2;
+    }
+    button {
+        border-radius: 0;
+    }
+}
