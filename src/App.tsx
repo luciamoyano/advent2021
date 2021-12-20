@@ -9,7 +9,16 @@ const [giftsList, setGiftsList] = useState([{'name':'mundial de qatar 2022','qua
 
   
   function addGift(name:any, quantity:number) {
-    if(!giftsList.includes(name)) {
+    let isRepeated = false;
+    giftsList.map((gift, key)=>{
+      if (name == gift.name) {
+        isRepeated = true;
+        let newList = [...giftsList];
+        newList[key] = {...newList[key],'quantity':+gift.quantity + +quantity};
+        setGiftsList(newList)
+      }
+    })
+    if(!isRepeated) {
       setGiftsList(
         [...giftsList, {'name':name, 'quantity': quantity}
       ]);
@@ -26,8 +35,6 @@ const [giftsList, setGiftsList] = useState([{'name':'mundial de qatar 2022','qua
   function deleteAll() {
     setGiftsList([]);
   }
-
-  console.log(giftsList)
 
   return (
 
