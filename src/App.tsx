@@ -1,26 +1,34 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import GiftsList from "./components/GiftsList";
 import AddGift from "./components/AddGift";
 import "./styles.scss";
 import DeleteAll from './components/DeleteAll';
+import { useLocalStorage } from './hooks/localStorage';
 
 export default function App() {
-const [giftsList, setGiftsList] = useState([{'name':'mundial de qatar 2022','quantity':1},{'name':'milanesas con puré','quantity':365}])
+const [giftsList, setGiftsList] = useState([{'name':'mundial de qatar 2022','quantity':1,'image':'url'},{'name':'milanesas con puré','quantity':365,'image':'url'}])
+const [getLocalStorage, setLocalStorage] = useLocalStorage();  
 
-  
-  function addGift(name:any, quantity:number) {
+
+
+useEffect(()=>{
+  setLocalStorage(giftsList)
+},[giftsList]);
+
+
+  function addGift(giftValues:any) {
     let isRepeated = false;
     giftsList.map((gift, key)=>{
-      if (name == gift.name) {
+      if (giftValues.name == gift.name) {
         isRepeated = true;
         let newList = [...giftsList];
-        newList[key] = {...newList[key],'quantity':+gift.quantity + +quantity};
+        newList[key] = {...newList[key],'quantity':+gift.quantity + +giftValues.quantity};
         setGiftsList(newList)
       }
     })
     if(!isRepeated) {
       setGiftsList(
-        [...giftsList, {'name':name, 'quantity': quantity}
+        [...giftsList, giftValues
       ]);
     }
   }
@@ -39,6 +47,7 @@ const [giftsList, setGiftsList] = useState([{'name':'mundial de qatar 2022','qua
   return (
 
     <div className="App">
+      <button onClick={useLocalStorage}/>
       <main id="main-container">
       <h1>Regalos:</h1>
         <AddGift handleCallback={addGift}/>

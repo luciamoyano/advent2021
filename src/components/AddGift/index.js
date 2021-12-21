@@ -1,37 +1,56 @@
 import { useState } from "react";
+import Input from "../Input";
 
 export default function AddGift({ handleCallback }) {
-  const [inputValue, setInputValue] = useState("");
-  const [numberValue, setNumberValue] = useState(1);
+  const [giftValues, setGiftValues] = useState({});
 
   function handleOnChange(e) {
-    setInputValue(e.target.value);
+    const { id, value } = e.target;
+    setGiftValues({ ...giftValues, [id]: value });
   }
 
-  function numberOnChange(e) {
-    setNumberValue(e.target.value);
-  }
-
-  function handleClick(gift, quantity) {
-    if (gift !== "") {
-      handleCallback(gift, quantity);
-      setInputValue("");
-      setNumberValue(1);
+  //setear giftlist aca -> enviar a localstorage
+  function handleClick(giftValues) {
+    if (giftValues.name !== "") {
+      handleCallback(giftValues);
+      //setInputValue("");
+      //setNumberValue(1);
     }
   }
 
   return (
     <div>
-      <input
+      <Input
         type="text"
+        id="name"
         placeholder="agregá un regalo"
         onChange={handleOnChange}
-        value={inputValue}
+        value={giftValues.name}
       />
-      <input type="number" value={numberValue} onChange={numberOnChange} />
+      <Input
+        type="url"
+        id="image"
+        placeholder="http//imagen"
+        onChange={handleOnChange}
+        value={giftValues.image}
+      />
+      <Input
+        type="text"
+        id="recipient"
+        placeholder="destinatario"
+        onChange={handleOnChange}
+        value={giftValues.recipient}
+      />
+      <Input
+        type="number"
+        id="quantity"
+        placeholder="cantidad"
+        onChange={handleOnChange}
+        value={giftValues.quantity}
+      />
       <button
         type="submit"
-        onClick={() => handleClick(inputValue, numberValue)}
+        onClick={() => handleClick(giftValues)}
         className="add-gift"
       >
         Enviar carta
