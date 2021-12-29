@@ -1,19 +1,34 @@
-.gift {
+@import '../../variables.scss';
+
+li.gift {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
     width: 100%;
-    .gift-quantity{
-        margin-right:10px;
+    background:$white;
+    border-radius:20px;
+    padding:10px;
+    margin-bottom:30px;
+    .image-container {     
+        .gift-image {
+            border-radius:15px;
+            display:block;
+            max-width: 150px;
+        }
     }
-    .gift-name {
-        flex-grow: 2;
+    .info-container {
+        text-transform: capitalize;
+        width: 100%;
+        margin-left:20px;
+        .gift-quantity{
+            margin-right:10px;
+        }
+        .gift-name {
+            flex-grow: 2;
+        }
     }
-    .gift-image {
-        display:block;
-        max-height: 50px;
-    }
-    button {
-        border-radius: 0;
+    .buttons {
+        button {
+            border-radius: 0;
+            display: inline-block;
+        }
     }
 }

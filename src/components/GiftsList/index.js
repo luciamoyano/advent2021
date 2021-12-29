@@ -6,7 +6,7 @@ export default function GiftsList({ giftsList, deleteGift }) {
       {giftsList && (
         <ul>
           {giftsList.map((gift, key) => {
-            const { name, quantity, image, recipient } = gift;
+            const { name, quantity, image, recipient, price } = gift;
             return (
               <Gift
                 name={name}
@@ -14,6 +14,7 @@ export default function GiftsList({ giftsList, deleteGift }) {
                 key={key}
                 image={image}
                 recipient={recipient}
+                price={price}
                 deleteGift={deleteGift}
               />
             );
