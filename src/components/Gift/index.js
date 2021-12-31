@@ -17,23 +17,23 @@ export default function Gift({
         </div>
         <div className="info-container">
           <h2 className="gift-name">{name}</h2>
-          <p className="gift-recipient">Para: {recipient}</p>
-          <p className="gift-quantity">Cantidad: {quantity}</p>{" "}
+          <p className="gift-recipient">To: {recipient}</p>
+          <p className="gift-quantity">Quantity: {quantity}</p>
           <p className="gift-price">${price}</p>
-          <div className="buttons">
-            <Button
-              type="delete"
-              onClick={() => deleteGift(name)}
-              id="delete-gift"
-              text="Eliminar"
-            />
-            <Button
-              type="edit"
-              onClick={() => deleteGift(name)}
-              id="edit-gift"
-              text="Editar"
-            />
-          </div>
+        </div>
+        <div className="buttons">
+          <Button
+            type="delete"
+            onClick={() => deleteGift(name)}
+            id="delete-gift"
+            text="Delete"
+          />
+          <Button
+            type="button"
+            onClick={() => deleteGift(name)}
+            id="edit-gift"
+            text="Edit"
+          />
         </div>
       </li>
     </>

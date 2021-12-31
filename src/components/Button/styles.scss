@@ -1,25 +1,34 @@
 @import '../../variables.scss';
+@import '../../mixins.scss';
 
 button {
-    font-family: 'Work Sans', sans-serif;
-    background-color: $mustard;
-    border:none;
-    margin-left:8px;
-    border-radius:10px;
-    padding:10px;
-    color:$cream;
-    cursor:pointer;
+  @include main-font;
+  background-color: $brown;
+  border:none;
+  margin-left:8px;
+  border-radius:30px;
+  padding:10px 20px;
+  text-transform: uppercase;
+  color:$white;
+  cursor:pointer;
+  &:hover,&:active,&:focus {
+    background-color: lighten($brown,10);
+  }
+  &.add-gift:before {
+      content:"+ ";
+    }
+  &.submit-gift,&.add-gift {
+    background-color: $green;
     &:hover,&:active,&:focus {
-      background-color: lighten($mustard,10);
+      background-color: lighten($green,10);
     }
-    &.add-gift {
-      background-color: $green;
-      &:before{
-        content:"+ ";
-      }
-      &:hover,&:active,&:focus {
-        background-color: lighten($green,10);
-      }
+  }
+  &.close-modal {
+    display:block;
+    background-color: $orange;
+    &:hover,&:active,&:focus {
+      background-color: lighten($orange,10);
     }
-  }    
+  }
+}    
   

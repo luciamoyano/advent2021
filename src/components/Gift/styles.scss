@@ -1,23 +1,27 @@
 @import '../../variables.scss';
 
 li.gift {
-    display: flex;
-    width: 100%;
-    background:$white;
+    width: 25%;
+    min-width:250px;
+    background:$cream;
+    color:$black;
     border-radius:20px;
     padding:10px;
-    margin-bottom:30px;
+    margin: 20px;
+    h2 {
+        font-size: 20px;
+    }
     .image-container {     
         .gift-image {
             border-radius:15px;
             display:block;
-            max-width: 150px;
+            width:100%;
         }
     }
     .info-container {
         text-transform: capitalize;
         width: 100%;
-        margin-left:20px;
+        padding:0px 10px;
         .gift-quantity{
             margin-right:10px;
         }
@@ -26,9 +30,24 @@ li.gift {
         }
     }
     .buttons {
+        display:flex;
+        justify-content: flex-end;
         button {
-            border-radius: 0;
             display: inline-block;
+            &.delete-gift {
+                display:block;
+                background-color: $orange;
+                &:hover,&:active,&:focus {
+                  background-color: lighten($orange,10);
+                }
+            }
+            &.edit-gift {
+                display:block;
+                background-color: $green;
+                &:hover,&:active,&:focus {
+                  background-color: lighten($green,10);
+                }
+            }
         }
     }
 }

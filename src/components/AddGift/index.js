@@ -26,50 +26,52 @@ export default function AddGift({ addGift, isOpen, toggleModal }) {
         <Input
           type="text"
           id="name"
-          placeholder="agregá un regalo"
+          placeholder="gift name"
           onChange={handleOnChange}
           value={giftValues.name}
         />
         <Input
           type="url"
           id="image"
-          placeholder="http//imagen"
+          placeholder="http//image"
           onChange={handleOnChange}
           value={giftValues.image}
         />
         <Input
           type="text"
           id="recipient"
-          placeholder="destinatario"
+          placeholder="to"
           onChange={handleOnChange}
           value={giftValues.recipient}
         />
         <Input
           type="number"
           id="quantity"
-          placeholder="cantidad"
+          placeholder="quantity"
           onChange={handleOnChange}
           value={giftValues.quantity}
         />
         <Input
           type="number"
           id="price"
-          placeholder="precio"
+          placeholder="price"
           onChange={handleOnChange}
           value={giftValues.price}
         />
-        <Button
-          type="submit"
-          onClick={() => handleClick(giftValues)}
-          id="submit-gift"
-          text="Enviar Carta"
-        />
-        <Button
-          type="button"
-          onClick={() => toggleModal("close")}
-          id="close-modal"
-          text="Close"
-        />
+        <div className="form-buttons">
+          <Button
+            type="submit"
+            onClick={() => handleClick(giftValues)}
+            id="submit-gift"
+            text="Send letter"
+          />
+          <Button
+            type="button"
+            onClick={() => toggleModal("close")}
+            id="close-modal"
+            text="Close"
+          />
+        </div>
       </div>
     </div>
   );

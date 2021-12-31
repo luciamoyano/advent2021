@@ -1,10 +1,11 @@
 import Gift from "../Gift";
+import "./styles.scss";
 
 export default function GiftsList({ giftsList, deleteGift }) {
   return (
     <>
       {giftsList && (
-        <ul>
+        <ul className="gift-list">
           {giftsList.map((gift, key) => {
             const { name, quantity, image, recipient, price } = gift;
             return (

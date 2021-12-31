@@ -1,41 +1,37 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
 #add-gift-modal {
     display: none; 
     position: fixed; 
     z-index: 1;
-    padding-top: 100px; /* Location of the box */
+    padding-top:200px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%; 
     overflow: auto; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); 
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.4); 
     &.opened {
         display:block;
     }
     #add-gift-container {
+        border-radius:20px;
         position: relative;
         background-color: #fefefe;
         margin: auto;
         padding: 20px;
-        border: 1px solid #888;
+        border: 1px solid #f2f2f2;
         width: 80%;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        box-shadow: 0 4px 8px 0 rgba(255, 254, 254, 0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         -webkit-animation-name: animatetop;
         -webkit-animation-duration: 0.4s;
         animation-name: slide;
         animation-duration: 0.4s;
-        .close-modal {
-          color: white;
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
-          &:hover,
-          &:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-          }
+        .form-buttons {
+            display:flex;
+            justify-content: flex-end;
         }
     }
 }
